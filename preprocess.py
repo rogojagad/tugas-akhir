@@ -1,4 +1,5 @@
 import json
+import pickle
 from nltk.tokenize import RegexpTokenizer
 from pprint import pprint
 
@@ -50,5 +51,10 @@ if __name__ == "__main__":
     for data in dataset:
         doc.append(entity_labelling(data))
 
-    pprint(doc)
+    # pprint(doc)
+
+    save_path = "D:\Kuliah\TA\data"
+
+    with open(save_path + '\labelled_words.pickle', 'wb') as output:
+        pickle.dump(doc, output)
     # pprint(dataset)
