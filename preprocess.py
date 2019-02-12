@@ -1,10 +1,14 @@
 import json
 import pickle
+import nltk
 from nltk.tokenize import RegexpTokenizer
 from pprint import pprint
+from custom_utils import *
+
+save_path = "D:\Kuliah\TA\data"
 
 def read_dataset_file():
-    with open('dataset/ABSA-15_Restaurants_Train_Final.json') as f:
+    with open('dataset/test-dataset.json') as f:
         data = json.load(f)
 
     return data
@@ -43,18 +47,36 @@ def get_target(targets):
 
     return splitted_targets
 
+def pos_tag_labelling(docs):
+    data = []
+
+    for i, doc in enumerate(docs):
+        tokens = [t for t, label in doc]
+
+        tagged = nltk.pos_tag(tokens)
+
+        data.append([(w, pos, label) for (w, label), (word, pos) in zip(doc, tagged)])
+
+    return data
+
 if __name__ == "__main__":
+##################################################
+#   Bagian ini tidak perlu di-running ulang, cukup import dr pickle aja
+#   Kalo ada perubahan di dataset baru dijalanin ulang
+
     dataset = read_dataset_file()
 
-    doc = []
+    docs = []
 
     for data in dataset:
-        doc.append(entity_labelling(data))
+        docs.append(entity_labelling(data))
 
-    # pprint(doc)
+    export(docs, "\\test\labelled_words.pickle")
+################################################## 
 
-    save_path = "D:\Kuliah\TA\data"
+    # with open(save_path + '\\train\labelled_words.pickle', 'rb') as inp:
+    #     docs = pickle.load(inp)
 
-    with open(save_path + '\labelled_words.pickle', 'wb') as output:
-        pickle.dump(doc, output)
-    # pprint(dataset)
+    docs_pos_tagged = pos_tag_labelling(docs)
+
+    export(docs_pos_tagged, "\\test\labelled_pos_tagged_words.pickle")
