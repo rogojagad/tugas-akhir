@@ -23,7 +23,7 @@ def word2features(doc, i):
         'word.isupper=%s' % word.isupper(),
         'word.istitle=%s' % word.istitle(),
         'word.isdigit=%s' % word.isdigit(),
-        'postag=' + postag
+        'postag=' + postag,
     ]
 
     # Features for words that are not
@@ -36,7 +36,7 @@ def word2features(doc, i):
             '-1:word.istitle=%s' % word1.istitle(),
             '-1:word.isupper=%s' % word1.isupper(),
             '-1:word.isdigit=%s' % word1.isdigit(),
-            '-1:postag=' + postag1
+            '-1:postag=' + postag1,
         ])
     else:
         # Indicate that it is the 'beginning of a document'
@@ -52,7 +52,7 @@ def word2features(doc, i):
             '+1:word.istitle=%s' % word1.istitle(),
             '+1:word.isupper=%s' % word1.isupper(),
             '+1:word.isdigit=%s' % word1.isdigit(),
-            '+1:postag=' + postag1
+            '+1:postag=' + postag1,
         ])
     else:
         # Indicate that it is the 'end of a document'
