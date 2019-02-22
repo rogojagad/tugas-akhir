@@ -1,11 +1,14 @@
 import json
 import pickle
 import nltk
+import sys
+import dependency_parser
 from nltk.tokenize import RegexpTokenizer
 from pprint import pprint
 from custom_utils import *
+from tqdm import tqdm
 
-save_path = "D:\Kuliah\TA\data"
+data_dir = "D:\Kuliah\TA\data"
 
 def read_dataset_file():
     with open('dataset/test-dataset.json') as f:
@@ -47,36 +50,56 @@ def get_target(targets):
 
     return splitted_targets
 
-def pos_tag_labelling(docs):
-    data = []
+def labelling(data, dependency_parsing_result):
+    labelling_result = []
 
-    for i, doc in enumerate(docs):
-        tokens = [t for t, label in doc]
+    entity_labelling_results = entity_labelling(data)
 
-        tagged = nltk.pos_tag(tokens)
+    tokenized = [result[0] for result in entity_labelling_results]
+    governor_relation_dict = dependency_parser.get_governor_relation(tokenized, dependency_parsing_result)
+    dependent_relation_dict = dependency_parser.get_dependent_relation(tokenized, dependency_parsing_result)
 
-        data.append([(w, pos, label) for (w, label), (word, pos) in zip(doc, tagged)])
+    for result in entity_labelling_results:
+        token = result[0]
+        bio_label = result[1]
+        post_tag_label = get_pos_tag_label(tokenized, token)
 
-    return data
+        if token in governor_relation_dict:
+            governor_relation = governor_relation_dict[token]
+        else:
+            governor_relation = None
+
+        if token in dependent_relation_dict:
+            dependent_relation = dependent_relation_dict[token]
+        else:
+            dependent_relation = None
+
+        labelling_result.append(( token, post_tag_label, governor_relation, dependent_relation, bio_label ))
+
+    # print()
+    # pprint(labelling_result)
+
+    # sys.exit()
+
+    return labelling_result
+
+def get_pos_tag_label(words, target_word):
+    tagged = nltk.pos_tag(words)
+    
+    for token in tagged:
+        if token[0] == target_word: return token[1]
 
 if __name__ == "__main__":
-##################################################
-#   Bagian ini tidak perlu di-running ulang, cukup import dr pickle aja
-#   Kalo ada perubahan di dataset baru dijalanin ulang
-
     dataset = read_dataset_file()
 
     docs = []
 
-    for data in dataset:
-        docs.append(entity_labelling(data))
+    with open(data_dir + "\\test_dependency_parsed.pickle", "rb") as f:
+        dependency_parsing_results = pickle.load(f)
+
+    for i in tqdm(range(len(dataset))):
+        docs.append(labelling(dataset[i], dependency_parsing_results[i]))
+
+    # pprint(docs)
 
     export(docs, "\\test\labelled_words.pickle")
-################################################## 
-
-    # with open(save_path + '\\train\labelled_words.pickle', 'rb') as inp:
-    #     docs = pickle.load(inp)
-
-    docs_pos_tagged = pos_tag_labelling(docs)
-
-    export(docs_pos_tagged, "\\test\labelled_pos_tagged_words.pickle")
