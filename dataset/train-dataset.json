@@ -8170,25 +8170,6 @@
   },
   {
     "polarity": [
-      "positive",
-      "positive",
-      "positive",
-      "positive",
-      "positive",
-      "positive"
-    ],
-    "sentence": "You can get a completely delish martini in a glass (that's about 2 1/2 drinks) for $8.50 (I\n                    recommend the Vanilla Shanty, mmmm!) in a great homey setting with great music.\n                ",
-    "target": [
-      "martini",
-      "martini",
-      "martini",
-      "Vanilla Shanty",
-      "setting",
-      "music"
-    ]
-  },
-  {
-    "polarity": [
       "positive"
     ],
     "sentence": "The in-house lady DJ on Saturday nights has outrageously good taste in music, and moreover, takes\n                    requests.\n                ",
