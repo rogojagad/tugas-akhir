@@ -21,7 +21,7 @@ def train(X_train, y_train):
         trainer.append(xseq, yseq)
 
     trainer.set_params({
-        'c1' : 10,
+        'c1' : 0.1,
         'c2' : 0.01,
         'feature.possible_transitions': True,
     })

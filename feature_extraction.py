@@ -5,7 +5,7 @@ from custom_utils import *
 data_dir = "D:\Kuliah\TA\data"
 
 def read_input():
-    with open( data_dir + "\\test\labelled_pos_tagged_words.pickle", "rb") as inp:
+    with open( data_dir + "\\test\labelled_words.pickle", "rb") as inp:
         lst = pickle.load(inp)
 
     return lst
@@ -13,17 +13,25 @@ def read_input():
 def word2features(doc, i):
     word = doc[i][0]
     postag = doc[i][1]
+    governor_relation = ''
+    dependent_relation = ''
+
+    if doc[i][2] != None: governor_relation = doc[i][2]
+    
+    if doc[i][3] != None: dependent_relation = doc[i][3]
 
     # Common features for all words
     features = [
         'bias',
         'word.lower=' + word.lower(),
-        'word[-3:]=' + word[-3:],
-        'word[-2:]=' + word[-2:],
-        'word.isupper=%s' % word.isupper(),
-        'word.istitle=%s' % word.istitle(),
-        'word.isdigit=%s' % word.isdigit(),
+        # 'word[-3:]=' + word[-3:],
+        # 'word[-2:]=' + word[-2:],
+        # 'word.isupper=%s' % word.isupper(),
+        # 'word.istitle=%s' % word.istitle(),
+        # 'word.isdigit=%s' % word.isdigit(),
         'postag=' + postag,
+        'governor_relation=' + governor_relation,
+        'dependent_relation=' + dependent_relation,
     ]
 
     # Features for words that are not
@@ -33,9 +41,9 @@ def word2features(doc, i):
         postag1 = doc[i-1][1]
         features.extend([
             '-1:word.lower=' + word1.lower(),
-            '-1:word.istitle=%s' % word1.istitle(),
-            '-1:word.isupper=%s' % word1.isupper(),
-            '-1:word.isdigit=%s' % word1.isdigit(),
+            # '-1:word.istitle=%s' % word1.istitle(),
+            # '-1:word.isupper=%s' % word1.isupper(),
+            # '-1:word.isdigit=%s' % word1.isdigit(),
             '-1:postag=' + postag1,
         ])
     else:
@@ -49,9 +57,9 @@ def word2features(doc, i):
         postag1 = doc[i+1][1]
         features.extend([
             '+1:word.lower=' + word1.lower(),
-            '+1:word.istitle=%s' % word1.istitle(),
-            '+1:word.isupper=%s' % word1.isupper(),
-            '+1:word.isdigit=%s' % word1.isdigit(),
+            # '+1:word.istitle=%s' % word1.istitle(),
+            # '+1:word.isupper=%s' % word1.isupper(),
+            # '+1:word.isdigit=%s' % word1.isdigit(),
             '+1:postag=' + postag1,
         ])
     else:
@@ -64,7 +72,7 @@ def extract_features(doc):
     return [word2features(doc,i) for i in range(len(doc))]
 
 def extract_labels(doc):
-    return [label for (token, postag, label) in doc]
+    return [label for (token, postag, governor_relation, dependent_relation, label) in doc]
 
 if __name__ == "__main__":
     docs = read_input()
