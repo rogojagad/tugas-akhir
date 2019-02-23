@@ -2,11 +2,11 @@
 # Created by https://www.gitignore.io/api/python,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=python,visualstudiocode
 
-report/
-
 test_import.py
 model_testing.py
 sentence_finder.py
+
+report/
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
