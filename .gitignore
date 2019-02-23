@@ -4,6 +4,10 @@
 
 report/
 
+test_import.py
+model_testing.py
+sentence_finder.py
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
