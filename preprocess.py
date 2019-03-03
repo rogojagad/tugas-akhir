@@ -1,12 +1,14 @@
 import json
 import pickle
-import nltk
 import sys
-import dependency_parser
-from nltk.tokenize import RegexpTokenizer
 from pprint import pprint
-from custom_utils import *
+
+import nltk
+from nltk.tokenize import RegexpTokenizer
 from tqdm import tqdm
+
+import dependency_parser
+from custom_utils import *
 
 data_dir = "D:\Kuliah\TA\data"
 

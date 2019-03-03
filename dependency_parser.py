@@ -1,11 +1,14 @@
-import os
-from nltk.parse import stanford
-from pprint import pprint
-from custom_utils import *
-from nltk.tokenize import RegexpTokenizer
 import json
+import os
 import sys
+from pprint import pprint
+
+from nltk.parse import stanford
+from nltk.tokenize import RegexpTokenizer
 from tqdm import tqdm
+
+from custom_utils import *
+
 
 def parse(sentence):
     os.environ['JAVAHOME'] = "C:\Program Files\Java\jdk1.8.0_151\\bin"
