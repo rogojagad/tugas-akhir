@@ -6,6 +6,7 @@ test_import.py
 model_testing.py
 sentence_finder.py
 tempCodeRunnerFile.py
+lexicon_maker.py
 
 report/
 
