@@ -67,3 +67,5 @@ if __name__ == "__main__":
         result.append(parse(dataset[i]['sentence']))
 
     export(result, "\\test_dependency_parsed.pickle")
+
+    # pprint(parse("Robots in popular culture are there to remind us of the awesomeness of unbound human agency."))
