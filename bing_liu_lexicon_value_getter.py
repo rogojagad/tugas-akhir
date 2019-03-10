@@ -8,12 +8,12 @@ class BingLiuLexiconValueGetter:
         with open(
             data_dir + "/bing-liu-opinion-lexicon/positive-words.pickle", "rb"
         ) as inp:
-            self.bing_liu_positive_lex = pickle.load(inp)
+            self.positive_lex = pickle.load(inp)
 
         with open(
             data_dir + "/bing-liu-opinion-lexicon/negative-words.pickle", "rb"
         ) as inp:
-            self.bing_liu_negative_lex = pickle.load(inp)
+            self.negative_lex = pickle.load(inp)
 
     def get_value(self, token):
         if self.is_positive(token):
@@ -22,12 +22,12 @@ class BingLiuLexiconValueGetter:
             return -1
 
     def is_positive(self, word):
-        for token in self.bing_liu_positive_lex:
+        for token in self.positive_lex:
             if token == word:
                 return True
 
     def is_negative(self, word):
-        for token in self.bing_liu_negative_lex:
+        for token in self.negative_lex:
             if token == word:
                 return True
 
