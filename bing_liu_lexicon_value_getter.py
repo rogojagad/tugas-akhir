@@ -1,0 +1,38 @@
+import pickle
+
+
+class BingLiuLexiconValueGetter:
+    def __init__(self):
+        data_dir = "D://Kuliah/TA/data"
+
+        with open(
+            data_dir + "/bing-liu-opinion-lexicon/positive-words.pickle", "rb"
+        ) as inp:
+            self.bing_liu_positive_lex = pickle.load(inp)
+
+        with open(
+            data_dir + "/bing-liu-opinion-lexicon/negative-words.pickle", "rb"
+        ) as inp:
+            self.bing_liu_negative_lex = pickle.load(inp)
+
+    def get_value(self, token):
+        if self.is_positive(token):
+            return 1
+        elif self.is_negative(token):
+            return -1
+
+    def is_positive(self, word):
+        for token in self.bing_liu_positive_lex:
+            if token == word:
+                return True
+
+    def is_negative(self, word):
+        for token in self.bing_liu_negative_lex:
+            if token == word:
+                return True
+
+
+if __name__ == "__main__":
+    getter = BingLiuLexiconValueGetter()
+
+    print(getter.get_value("victory"))
