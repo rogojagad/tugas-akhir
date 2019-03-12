@@ -11,7 +11,7 @@ class GeneralInquirerLexiconValueGetter:
         with open(data_dir + "/general-inquirer/negative-words.pickle", "rb") as inp:
             self.negative_lex = pickle.load(inp)
 
-     def get_value(self, token):
+    def get_value(self, token):
         if token in self.positive_lex:
             return 1
         elif token in self.negative_lex:
