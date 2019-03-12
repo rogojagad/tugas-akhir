@@ -61,8 +61,13 @@ class SentiWordNetValueGetter:
         else:
             return 0
 
+        # return pos_score - neg_score
+
 
 if __name__ == "__main__":
-    getter = SentiWordNetValueGetter()
+    pass
+    # Do class testing here
 
-    print(getter.get_value(("evil", "JJ", "O")))
+    # getter = SentiWordNetValueGetter()
+
+    # print(getter.get_value(("love", "VBR", "O")))
