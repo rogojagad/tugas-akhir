@@ -10,28 +10,35 @@ from tqdm import tqdm
 import dependency_parser
 from custom_utils import *
 
+from spellchecker import SpellChecker
+
 data_dir = "D:\Kuliah\TA\data"
 
+spell = SpellChecker()
+
+
 def read_dataset_file():
-    with open('dataset/test-dataset.json') as f:
+    with open("dataset/test-dataset.json") as f:
         data = json.load(f)
 
     return data
 
+
 def entity_labelling(data):
-    targets = get_target(data['target'])
-    
+    targets = get_target(data["target"])
+
     words = []
 
-    tokenizer = RegexpTokenizer(r'\w+')
+    tokenizer = RegexpTokenizer(r"\w+")
 
-    for word in tokenizer.tokenize(data['sentence']):        
-        label = get_word_label(word, targets)
+    for token in tokenizer.tokenize(data["sentence"]):
+        label = get_word_label(token, targets)
 
-        words.append((word, label))
+        words.append((token, label))
 
     # print(words)
     return words
+
 
 def get_word_label(word, list_of_targets):
     for targets in list_of_targets:
@@ -43,26 +50,32 @@ def get_word_label(word, list_of_targets):
     else:
         return "O"
 
+
 def get_target(targets):
     splitted_targets = []
 
     for target in targets:
         # print(target.split(' '))
-        splitted_targets.append(target.split(' '))
+        splitted_targets.append(target.split(" "))
 
     return splitted_targets
+
 
 def labelling(data, dependency_parsing_result):
     labelling_result = []
 
     entity_labelling_results = entity_labelling(data)
 
-    tokenized = [result[0] for result in entity_labelling_results]
-    governor_relation_dict = dependency_parser.get_governor_relation(tokenized, dependency_parsing_result)
-    dependent_relation_dict = dependency_parser.get_dependent_relation(tokenized, dependency_parsing_result)
+    tokenized = [spell.correction(result[0]) for result in entity_labelling_results]
+    governor_relation_dict = dependency_parser.get_governor_relation(
+        tokenized, dependency_parsing_result
+    )
+    dependent_relation_dict = dependency_parser.get_dependent_relation(
+        tokenized, dependency_parsing_result
+    )
 
     for result in entity_labelling_results:
-        token = result[0]
+        token = spell.correction(result[0])
         bio_label = result[1]
         post_tag_label = get_pos_tag_label(tokenized, token)
 
@@ -76,7 +89,9 @@ def labelling(data, dependency_parsing_result):
         else:
             dependent_relation = None
 
-        labelling_result.append(( token, post_tag_label, governor_relation, dependent_relation, bio_label ))
+        labelling_result.append(
+            (token, post_tag_label, governor_relation, dependent_relation, bio_label)
+        )
 
     # print()
     # pprint(labelling_result)
@@ -85,11 +100,14 @@ def labelling(data, dependency_parsing_result):
 
     return labelling_result
 
+
 def get_pos_tag_label(words, target_word):
     tagged = nltk.pos_tag(words)
-    
+
     for token in tagged:
-        if token[0] == target_word: return token[1]
+        if token[0] == target_word:
+            return token[1]
+
 
 if __name__ == "__main__":
     dataset = read_dataset_file()
