@@ -4099,7 +4099,7 @@
       "positive",
       "positive"
     ],
-    "sentence": "Not only is it an adventure getting to this somewhat hidden spot, once you enter the unmarked wooden doors, the zen and intimate d\u00e9cor will make you feel like you\u2019re no longer in the city.",
+    "sentence": "Not only is it an adventure getting to this somewhat hidden spot, once you enter the unmarked wooden doors, the zen and intimate decor will make you feel like you are no longer in the city.",
     "target": [
       "spot",
       "unmarked wooden doors",
@@ -4232,7 +4232,7 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "We paid a fixed pricce but got nothing!!",
+    "sentence": "We paid a fixed price but got nothing!!",
     "target": [
       "NULL"
     ]
