@@ -830,7 +830,7 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "Not because you are \"The Four Seasons\"... \u2013 you are allowed to charge an arm and a leg for a romatic dinner.",
+    "sentence": "Not because you are The Four Seasons... you are allowed to charge an arm and a leg for a romatic dinner.",
     "target": [
       "The Four Seasons"
     ]
@@ -979,7 +979,7 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "Gross food \u2013 Wow-",
+    "sentence": "Gross food Wow-",
     "target": [
       "food"
     ]
@@ -1734,7 +1734,7 @@
       "negative",
       "neutral"
     ],
-    "sentence": "The bread we received was horrible - rock hard and cold - and the \"free\" appetizer of olives was disappointing.",
+    "sentence": "The bread we received was horrible - rock hard and cold - and the free appetizer of olives was disappointing.",
     "target": [
       "bread",
       "appetizer of olives",
@@ -1811,7 +1811,7 @@
     "polarity": [
       "positive"
     ],
-    "sentence": "short and sweet \u2013 seating is great:it's romantic,cozy and private.",
+    "sentence": "short and sweet seating is great:it's romantic,cozy and private.",
     "target": [
       "seating"
     ]
@@ -3046,7 +3046,7 @@
       "neutral",
       "negative"
     ],
-    "sentence": "The Four Seasons has history and it is a sort of landmark of New York City restaurants, but trust me, they will charge you through the nose just so that you can say \"I've been to the four seasons restaurant\".",
+    "sentence": "The Four Seasons has history and it is a sort of landmark of New York City restaurants, but trust me, they will charge you through the nose just so that you can say I've been to the four seasons restaurant.",
     "target": [
       "The Four Seasons",
       "The Four Seasons"
@@ -3485,16 +3485,16 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "I believe there were 2 shrimp in the \"salt encrusted shrimp\" appetizer. ",
+    "sentence": "I believe there were 2 shrimp in the salt encrusted shrimp appetizer. ",
     "target": [
-      "\"salt encrusted shrimp\" appetizer"
+      "salt encrusted shrimp appetizer"
     ]
   },
   {
     "polarity": [
       "negative"
     ],
-    "sentence": "She replied \"well it would be more convenient for us if you ordered now, since you are a larger party, and it might get crowded.\" ",
+    "sentence": "She replied well it would be more convenient for us if you ordered now, since you are a larger party, and it might get crowded. ",
     "target": [
       "NULL"
     ]
@@ -3563,7 +3563,7 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "Service not the friendliest to our \"large party\"! ",
+    "sentence": "Service not the friendliest to our large party! ",
     "target": [
       "Service"
     ]
@@ -3600,7 +3600,7 @@
       "neutral",
       "positive"
     ],
-    "sentence": "Very \"normal Indian food\", but done really well.",
+    "sentence": "Very normal Indian food, but done really well.",
     "target": [
       "Indian food",
       "Indian food"
@@ -3665,7 +3665,7 @@
     "polarity": [
       "positive"
     ],
-    "sentence": "Bukhara Grill, the tagline says it all.. \"INDIAN SPICE RAVE\"",
+    "sentence": "Bukhara Grill, the tagline says it all.. INDIAN SPICE RAVE",
     "target": [
       "Bukhara Grill"
     ]
@@ -4025,7 +4025,7 @@
       "positive",
       "positive"
     ],
-    "sentence": "i love margherita pizza \u2013 i looove east village pizza",
+    "sentence": "i love margherita pizza i looove east village pizza",
     "target": [
       "east village pizza",
       "margherita pizza"
@@ -4087,7 +4087,7 @@
       "positive",
       "positive"
     ],
-    "sentence": "This is undoubtedly my favorite modern Japanese brasserie (that don\u2019t serve sushi), and in my opinion, one of the most romantic restaurants in the city!",
+    "sentence": "This is undoubtedly my favorite modern Japanese brasserie (that dont serve sushi), and in my opinion, one of the most romantic restaurants in the city!",
     "target": [
       "modern Japanese brasserie",
       "modern Japanese brasserie"
@@ -4103,7 +4103,7 @@
     "target": [
       "spot",
       "unmarked wooden doors",
-      "d\u00e9cor"
+      "decor"
     ]
   },
   {
@@ -4111,7 +4111,7 @@
       "positive",
       "positive"
     ],
-    "sentence": "If you\u2019re planning to come here, make sure that your date is someone whom you really like since you\u2019ll be ushered to private booths where there will be no people or food watching (choose the ones on the ground level that have glass ceilings so you may see the stars in the sky!).",
+    "sentence": "If youre planning to come here, make sure that your date is someone whom you really like since youll be ushered to private booths where there will be no people or food watching (choose the ones on the ground level that have glass ceilings so you may see the stars in the sky!).",
     "target": [
       "private booths",
       "glass ceilings"
@@ -4122,7 +4122,7 @@
       "positive",
       "positive"
     ],
-    "sentence": "It\u2019s just you and your date and an occasional cute \u2018excuse me\u2019 before the waiter opens the little curtain to your booth!",
+    "sentence": "Its just you and your date and an occasional cute excuse me before the waiter opens the little curtain to your booth!",
     "target": [
       "NULL",
       "waiter"
@@ -4172,20 +4172,22 @@
     "polarity": [
       "positive"
     ],
-    "sentence": "The sake\u2019s complimented the courses very well and is successfully easing me into the sake world.",
+    "sentence": "The sakes complimented the courses very well and is successfully easing me into the sake world.",
     "target": [
-      "sake\u2019s"
+      "sakes"
     ]
   },
   {
     "polarity": [
       "neutral",
+      "positive",
       "positive"
     ],
-    "sentence": "For desserts, we tried the frozen black sesame mousse (interesting but not extraordinary) and matcha (powdered green tea) and blueberry cheesecake, which was phenomenal.",
+    "sentence": "For desserts, we tried the frozen black sesame mousse which is interesting but not extraordinary and matcha and blueberry cheesecake, which was phenomenal.",
     "target": [
       "frozen black sesame mousse",
-      "matcha (powdered green tea) and blueberry cheesecake"
+      "matcha",
+      "blueberry cheesecake"
     ]
   },
   {
@@ -4193,7 +4195,7 @@
       "positive",
       "positive"
     ],
-    "sentence": "Maybe it was the great company (I had friends visiting from Philly \u2013 yes, it was not a date this time) or the super reasonable price point, but I just can\u2019t say enough good things about this brasserie.",
+    "sentence": "Maybe it was the great company (I had friends visiting from Philly yes, it was not a date this time) or the super reasonable price point, but I just cant say enough good things about this brasserie.",
     "target": [
       "brasserie",
       "brasserie"
@@ -4204,7 +4206,7 @@
       "positive",
       "positive"
     ],
-    "sentence": "I don\u2019t usually visit the same establishment more than once, what more twice, but I\u2019ll come to Zenkichi anytime for a quiet, unhurried and memorable dinner.",
+    "sentence": "I dont usually visit the same establishment more than once, what more twice, but Ill come to Zenkichi anytime for a quiet, unhurried and memorable dinner.",
     "target": [
       "Zenkichi",
       "Zenkichi"
@@ -4787,7 +4789,7 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "Guess what, I waited for TWENTY minutes before she came over and when she finally did, she says, \"oh well, I wish you would have said something earlier\" No apology, nothing.",
+    "sentence": "Guess what, I waited for TWENTY minutes before she came over and when she finally did, she says, oh well, I wish you would have said something earlier No apology, nothing.",
     "target": [
       "NULL"
     ]
@@ -5066,7 +5068,7 @@
       "positive",
       "negative"
     ],
-    "sentence": "Fabulous food - if the front of house staff don't put you off \u2013 ",
+    "sentence": "Fabulous food - if the front of house staff don't put you off",
     "target": [
       "food",
       "front of house staff"
@@ -5120,7 +5122,7 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "I was almost amused by the fact that she was turning away customers at 9pm on a Friday night because she \"had a BBQ to go to\" that night - WTF??",
+    "sentence": "I was almost amused by the fact that she was turning away customers at 9pm on a Friday night because she had a BBQ to go to that night - WTF??",
     "target": [
       "NULL"
     ]
@@ -5138,7 +5140,7 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "There's another girl who I can't describe, she is about 5'6\" with brown hair, who eavesdrops on your conversation and chimes in - except she only hears the last part of what you said, so her uninvited opinions are often out of context and nothing to do with what you're *really* talking about. ",
+    "sentence": "There's another girl who I can't describe, she is about 5'6 with brown hair, who eavesdrops on your conversation and chimes in - except she only hears the last part of what you said, so her uninvited opinions are often out of context and nothing to do with what you're *really* talking about. ",
     "target": [
       "girl"
     ]
@@ -5163,13 +5165,11 @@
   },
   {
     "polarity": [
-      "negative",
       "negative"
     ],
     "sentence": "Considering you will spend at least $60 a head, I expect better service. ",
     "target": [
-      "service",
-      "NULL"
+      "service"
     ]
   },
   {
@@ -5185,7 +5185,7 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "Maitre-D-\"Eat and get out\"",
+    "sentence": "Maitre-D-Eat and get out",
     "target": [
       "Maitre-D"
     ]
@@ -5234,7 +5234,7 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "A word to the wise: you can't dine here and disturb the maitre-D's sense of \" table turnover\", as whacked as it is, or else.",
+    "sentence": "A word to the wise: you can't dine here and disturb the maitre-D's sense of table turnover, as whacked as it is, or else.",
     "target": [
       "maitre-D"
     ]
@@ -5403,7 +5403,7 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "Don\u2019t go to this place!",
+    "sentence": "Dont go to this place!",
     "target": [
       "place"
     ]
@@ -5476,7 +5476,7 @@
       "negative",
       "negative"
     ],
-    "sentence": "Can\u2019t believe how an expensive NYC restaurant can be so disrespectful to its clients.",
+    "sentence": "Cant believe how an expensive NYC restaurant can be so disrespectful to its clients.",
     "target": [
       "restaurant",
       "NULL"
@@ -5617,7 +5617,7 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "I was shocked that my friends wanted to stay after the waitress said, \"can I help you\" and \"how many are in your party.\"",
+    "sentence": "I was shocked that my friends wanted to stay after the waitress said, can I help you and how many are in your party.",
     "target": [
       "waitress"
     ]
