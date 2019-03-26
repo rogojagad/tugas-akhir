@@ -1,8 +1,18 @@
 import pickle
 from pprint import pprint
 from custom_utils import *
+from nltk.stem import WordNetLemmatizer
+from nltk.corpus import stopwords
+from nltk.corpus import wordnet as wn
+
+lemmatizer = WordNetLemmatizer()
 
 data_dir = "D:\Kuliah\TA\data"
+
+with open(data_dir + "\\train\\frequent_term.pickle", "rb") as inp:
+    frequent_term = pickle.load(inp)
+
+stopwords = stopwords.words("english")
 
 
 def read_input():
@@ -12,11 +22,30 @@ def read_input():
     return lst
 
 
+def penn_to_wn(tag):
+    if tag.startswith("J"):
+        return wn.ADJ
+    elif tag.startswith("N"):
+        return wn.NOUN
+    elif tag.startswith("R"):
+        return wn.ADV
+    elif tag.startswith("V"):
+        return wn.VERB
+
+    return None
+
+
 def word2features(doc, i):
     word = doc[i][0]
     postag = doc[i][1]
     governor_relation = ""
     dependent_relation = ""
+    wn_postag = penn_to_wn(postag)
+
+    if wn_postag == None:
+        lemmatized = lemmatizer.lemmatize(word.lower())
+    else:
+        lemmatized = lemmatizer.lemmatize(word.lower(), wn_postag)
 
     if doc[i][2] != None:
         governor_relation = doc[i][2]
@@ -24,11 +53,31 @@ def word2features(doc, i):
     if doc[i][3] != None:
         dependent_relation = doc[i][3]
 
+    if len(word) >= 5:
+        exceeding = True
+    else:
+        exceeding = False
+
+    if word in frequent_term:
+        frequent = True
+    else:
+        frequent = False
+
+    if word in stopwords:
+        stopword = True
+    else:
+        stopword = False
+
     # Common features for all words
     features = [
-        "bias",
+        "word=" + word,
         "word.lower=" + word.lower(),
-        # 'word[-3:]=' + word[-3:],
+        "word.lemmatize=" + lemmatized,
+        "word.is_frequent_term=%s" % frequent,
+        "word.is_stopword=%s" % stopword,
+        "word.length_exceeding_5=%s" % exceeding,
+        "word.suffix=" + word[-3:],
+        "word.prefix=" + word[0:3],
         # 'word[-2:]=' + word[-2:],
         # 'word.isupper=%s' % word.isupper(),
         # 'word.istitle=%s' % word.istitle(),
@@ -37,6 +86,19 @@ def word2features(doc, i):
         "governor_relation=" + governor_relation,
         "dependent_relation=" + dependent_relation,
     ]
+
+    if i - 2 > 0:
+        word1 = doc[i - 2][0]
+        postag1 = doc[i - 2][1]
+        features.extend(
+            [
+                "-2:word.lower=" + word1.lower(),
+                # '-1:word.istitle=%s' % word1.istitle(),
+                # '-1:word.isupper=%s' % word1.isupper(),
+                # '-1:word.isdigit=%s' % word1.isdigit(),
+                "-2:postag=" + postag1,
+            ]
+        )
 
     # Features for words that are not
     # at the beginning of a document
@@ -55,6 +117,19 @@ def word2features(doc, i):
     else:
         # Indicate that it is the 'beginning of a document'
         features.append("BOS")
+
+    if i + 2 < len(doc) - 1:
+        word1 = doc[i + 2][0]
+        postag1 = doc[i + 2][1]
+        features.extend(
+            [
+                "+1:word.lower=" + word1.lower(),
+                # '+1:word.istitle=%s' % word1.istitle(),
+                # '+1:word.isupper=%s' % word1.isupper(),
+                # '+1:word.isdigit=%s' % word1.isdigit(),
+                "+1:postag=" + postag1,
+            ]
+        )
 
     # Features for words that are not
     # at the end of a document
