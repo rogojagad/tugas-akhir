@@ -22,7 +22,7 @@ def train(X_train, y_train):
     for xseq, yseq in zip(X_train, y_train):
         trainer.append(xseq, yseq)
 
-    trainer.set_params({"c1": 0.08, "c2": 0.131, "feature.possible_transitions": True})
+    trainer.set_params({"c1": 0.08, "c2": 0.131, "feature.possible_states": True})
 
     trainer.train("crf.model")
 
