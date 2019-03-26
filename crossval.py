@@ -23,9 +23,9 @@ with open(data_dir + "\\test\\labels.pickle", "rb") as inp:
 X = X_train + X_test
 y = y_train + y_test
 
-crf = sklearn_crfsuite.CRF(algorithm="lbfgs", all_possible_transitions=True)
+crf = sklearn_crfsuite.CRF(algorithm="lbfgs", all_possible_states=True)
 
-params_space = {"c1": scipy.stats.expon(scale=0.5), "c2": scipy.stats.expon(scale=0.05)}
+params_space = {"c1": scipy.stats.expon(scale=0.1), "c2": scipy.stats.expon(scale=0.01)}
 
 f1_scorer = make_scorer(metrics.flat_f1_score, average="weighted")
 
@@ -35,7 +35,7 @@ best_scores = []
 
 best_params = []
 
-for _ in range(2):
+for _ in range(4):
     rs = RandomizedSearchCV(
         crf, params_space, verbose=1, n_jobs=-1, n_iter=50, scoring=f1_scorer, cv=k
     )
