@@ -2,6 +2,8 @@ import pycrfsuite
 import pickle
 from pprint import pprint
 from custom_utils import *
+from sklearn.metrics import classification_report
+import numpy as np
 
 data_dir = "D:\Kuliah\TA\data"
 
@@ -22,7 +24,7 @@ def train(X_train, y_train):
     for xseq, yseq in zip(X_train, y_train):
         trainer.append(xseq, yseq)
 
-    trainer.set_params({"c1": 0.08, "c2": 0.131, "feature.possible_states": True})
+    trainer.set_params({"feature.possible_states": True})
 
     trainer.train("crf.model")
 
@@ -72,6 +74,15 @@ def make_result(y_result):
     return prediction_result
 
 
+def evaluate(y_test, y_pred):
+    labels = {"B": 0, "I": 1, "O": 2}
+
+    predictions = np.array([labels[tag] for row in y_pred for tag in row])
+    truths = np.array([labels[tag] for row in y_test for tag in row])
+
+    print(classification_report(truths, predictions, target_names=["B", "I", "O"]))
+
+
 if __name__ == "__main__":
     xseq, yseq = load_train_data()
 
@@ -80,6 +91,8 @@ if __name__ == "__main__":
     X_test, y_test = load_test_data()
 
     y_result = predict(X_test)
+
+    evaluate(y_test, y_result)
 
     export(y_result, "\\test\prediction_labels.pickle")
 
