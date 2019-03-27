@@ -16,7 +16,7 @@ stopwords = stopwords.words("english")
 
 
 def read_input():
-    with open(data_dir + "\\test\labelled_words.pickle", "rb") as inp:
+    with open(data_dir + "\\train\labelled_words.pickle", "rb") as inp:
         lst = pickle.load(inp)
 
     return lst
@@ -75,9 +75,9 @@ def word2features(doc, i):
         "word.lemmatize=" + lemmatized,
         "word.is_frequent_term=%s" % frequent,
         "word.is_stopword=%s" % stopword,
-        "word.length_exceeding_5=%s" % exceeding,
-        "word.suffix=" + word[-3:],
-        "word.prefix=" + word[0:3],
+        # "word.length_exceeding_5=%s" % exceeding,
+        # "word.suffix=" + word[-3:],
+        # "word.prefix=" + word[0:3],
         # 'word[-2:]=' + word[-2:],
         # 'word.isupper=%s' % word.isupper(),
         # 'word.istitle=%s' % word.istitle(),
@@ -175,6 +175,6 @@ if __name__ == "__main__":
     X = [extract_features(doc) for doc in docs]
     y = [extract_labels(doc) for doc in docs]
 
-    export(X, "\\test\\features.pickle")
-    export(y, "\\test\\labels.pickle")
+    export(X, "\\train\\features.pickle")
+    export(y, "\\train\\labels.pickle")
 
