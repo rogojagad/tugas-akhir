@@ -3,9 +3,9 @@
     "polarity": [
       "positive"
     ],
-    "sentence": "Love Al Di La",
+    "sentence": "Love sushi",
     "target": [
-      "Al Di La"
+      "sushi"
     ]
   },
   {
@@ -39,13 +39,11 @@
     "polarity": [
       "positive",
       "positive",
-      "positive",
       "positive"
     ],
-    "sentence": "The pastas are incredible, the risottos (particularly the sepia) are fantastic and the braised rabbit is amazing.",
+    "sentence": "The pastas are incredible, the sepia are fantastic and the braised rabbit is amazing.",
     "target": [
       "pastas",
-      "risottos",
       "sepia",
       "braised rabbit"
     ]
@@ -72,12 +70,10 @@
   },
   {
     "polarity": [
-      "negative",
       "negative"
     ],
-    "sentence": "It was totally overpriced- fish and chips was about $15.... ",
+    "sentence": "fish and chips was about overpriced",
     "target": [
-      "NULL",
       "fish and chips"
     ]
   },
@@ -85,9 +81,9 @@
     "polarity": [
       "positive"
     ],
-    "sentence": "Tasty Dog!",
+    "sentence": "Tasty fish dishes!",
     "target": [
-      "Dog"
+      "fish dishes"
     ]
   },
   {
@@ -95,10 +91,10 @@
       "positive",
       "positive"
     ],
-    "sentence": "An awesome organic dog, and a conscious eco friendly establishment.",
+    "sentence": "An awesome organic salad and a conscious eco friendly atmosphere.",
     "target": [
       "dog",
-      "establishment"
+      "atmosphere"
     ]
   },
   {
@@ -179,7 +175,7 @@
     "polarity": [
       "positive"
     ],
-    "sentence": "We had half/half pizza, mine was eggplant and my friend had the buffalo and it was sooo huge for a small size pizza!",
+    "sentence": "It was sooo huge for a pizza!",
     "target": [
       "half/half pizza"
     ]
@@ -205,21 +201,21 @@
   {
     "polarity": [
       "positive",
-      "negative"
+      "positive"
     ],
-    "sentence": "Excellent food, although the interior could use some help.",
+    "sentence": "Excellent food, the menu is also complete.",
     "target": [
       "food",
-      "interior"
+      "menu"
     ]
   },
   {
     "polarity": [
       "negative"
     ],
-    "sentence": "The space kind of feels like an Alice in Wonderland setting, without it trying to be that.",
+    "sentence": "The atmosphere is not good",
     "target": [
-      "space"
+      "atmosphere"
     ]
   },
   {
@@ -246,7 +242,7 @@
     "polarity": [
       "positive"
     ],
-    "sentence": "Reliable, Fresh Sushi",
+    "sentence": "Reliable Sushi",
     "target": [
       "Sushi"
     ]
@@ -1507,9 +1503,9 @@
     "polarity": [
       "positive"
     ],
-    "sentence": "Most of the booths allow you to sit next to eachother without looking like 'that' couple.",
+    "sentence": "The waiter allow you to sit next to eachother without looking like 'that' couple.",
     "target": [
-      "booths"
+      "waiter"
     ]
   },
   {
@@ -1563,9 +1559,9 @@
     "polarity": [
       "positive"
     ],
-    "sentence": "My daughter's wedding reception at Water's Edge received the highest compliments from our guests.",
+    "sentence": "My daughter's wedding reception at this place received the highest compliments from our guests.",
     "target": [
-      "Water's Edge"
+      "place"
     ]
   },
   {
@@ -1605,18 +1601,18 @@
     "polarity": [
       "positive"
     ],
-    "sentence": "Paul, the maitre d', was totally professional and always on top of things.",
+    "sentence": "The waiter was totally professional and always on top of things.",
     "target": [
-      "Paul"
+      "waiter"
     ]
   },
   {
     "polarity": [
       "positive"
     ],
-    "sentence": "Thank you everyone at Water's Edge.",
+    "sentence": "Thank you everyone at the place.",
     "target": [
-      "Water's Edge"
+      "place"
     ]
   },
   {
@@ -1630,33 +1626,27 @@
   },
   {
     "polarity": [
-      "negative",
       "negative"
     ],
-    "sentence": "Service ok but unfriendly,filthy bathroom.",
+    "sentence": "Service ok but unfriendly",
     "target": [
-      "Service",
-      "bathroom"
+      "Service"
     ]
   },
   {
     "polarity": [
-      "neutral",
-      "negative",
-      "negative"
+      "positive"
     ],
-    "sentence": "The high prices you're going to pay is for the view not for the food.",
+    "sentence": "The high prices you're going to pay is for the food.",
     "target": [
-      "view",
-      "food",
-      "NULL"
+      "food"
     ]
   },
   {
     "polarity": [
       "negative"
     ],
-    "sentence": "The bar drinks were Eh, ok to say the least.",
+    "sentence": "The bar drinks were mediocre, ok to say the least.",
     "target": [
       "bar drinks"
     ]
@@ -1694,7 +1684,7 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "oh speaking of bathroom , the mens bathroom was disgusting.",
+    "sentence": "the mens bathroom was disgusting.",
     "target": [
       "mens bathroom"
     ]
@@ -1722,7 +1712,7 @@
       "positive",
       "negative"
     ],
-    "sentence": "The wine list was extensive - though the staff did not seem knowledgeable about wine pairings.",
+    "sentence": "The wine list was extensive - though the staff did not seem knowledgeable about it.",
     "target": [
       "wine list",
       "staff"
@@ -1734,7 +1724,7 @@
       "negative",
       "neutral"
     ],
-    "sentence": "The bread we received was horrible - rock hard and cold - and the free appetizer of olives was disappointing.",
+    "sentence": "The bread we received was horrible - rock hard and cold - and the appetizer of olives was disappointing.",
     "target": [
       "bread",
       "appetizer of olives",
@@ -3370,13 +3360,11 @@
   },
   {
     "polarity": [
-      "negative",
       "negative"
     ],
-    "sentence": "If it seemed possible to do so while there I would have fought my bill since my dinner portion of my meal was inedible!",
+    "sentence": "My dinner portion of my meal was inedible!",
     "target": [
-      "meal",
-      "NULL"
+      "meal"
     ]
   },
   {
@@ -3454,30 +3442,24 @@
     ],
     "sentence": "Not much of a selection of bottled beer either, we went with Brahma. ",
     "target": [
-      "selection of bottled beer"
+      "bottled beer"
     ]
   },
   {
     "polarity": [
-      "positive",
-      "negative",
       "positive"
     ],
-    "sentence": "The appetizers we ordered were served quickly - an order of fried oysters and clams were delicious but a tiny portion (maybe 3 of each). ",
+    "sentence": "The fried oysters and clams were delicious",
     "target": [
-      "fried oysters and clams",
-      "fried oysters and clams",
-      "NULL"
+      "fried oysters and clams"
     ]
   },
   {
     "polarity": [
-      "neutral",
       "negative"
     ],
-    "sentence": "The lobster knuckles (special of the day) were ok, but pretty tasteless.",
+    "sentence": "The lobster were pretty tasteless.",
     "target": [
-      "lobster knuckles",
       "lobster knuckles"
     ]
   },
@@ -3485,7 +3467,7 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "I believe there were 2 shrimp in the salt encrusted shrimp appetizer. ",
+    "sentence": "I had the salt encrusted potato appetizer undercooked",
     "target": [
       "salt encrusted shrimp appetizer"
     ]
@@ -3503,7 +3485,7 @@
     "polarity": [
       "neutral"
     ],
-    "sentence": "The food arrived in about 15 minutes. ",
+    "sentence": "Our order arrived in about 15 minutes. ",
     "target": [
       "NULL"
     ]
@@ -3520,14 +3502,12 @@
   {
     "polarity": [
       "positive",
-      "negative",
       "negative"
     ],
-    "sentence": "Everyone seemed generally happy with their food, except my brother who had the grilled Mahi Mahi, seemingly drenched in Grapfruit Juice! ",
+    "sentence": "Everyone seemed generally happy with their food, except my brother who had the grilled ribs undercooked",
     "target": [
       "food",
-      "grilled Mahi Mahi",
-      "grilled Mahi Mahi"
+      "grilled ribs"
     ]
   },
   {
@@ -3590,7 +3570,7 @@
     "polarity": [
       "positive"
     ],
-    "sentence": "Food was amazing - I love Indian food and eat it quite regularly, but I can say this is one of the best I've had.",
+    "sentence": "Food was amazing - I eat it quite regularly, but I can say this is one of the best I've had.",
     "target": [
       "Food"
     ]
@@ -3665,7 +3645,7 @@
     "polarity": [
       "positive"
     ],
-    "sentence": "Bukhara Grill, the tagline says it all.. INDIAN SPICE RAVE",
+    "sentence": "The Bukhara Grill is the best !!!!!",
     "target": [
       "Bukhara Grill"
     ]
@@ -4963,7 +4943,7 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "This place...god where do i begin.",
+    "sentence": "This place, I'll never come again.",
     "target": [
       "place"
     ]
@@ -4972,9 +4952,9 @@
     "polarity": [
       "positive"
     ],
-    "sentence": "It is quite a spectacular scene i'll give them that.",
+    "sentence": "A spectacular food, i'll give them that.",
     "target": [
-      "scene"
+      "food,"
     ]
   },
   {
@@ -5005,20 +4985,18 @@
     "polarity": [
       "positive"
     ],
-    "sentence": "Great Hot Dogs!",
+    "sentence": "The Hot Dogs are great!",
     "target": [
       "Hot Dogs"
     ]
   },
   {
     "polarity": [
-      "positive",
-      "neutral"
+      "positive"
     ],
-    "sentence": "Though it's been crowded most times I've gone here, Bark always delivers on their food.",
+    "sentence": "Though it's been crowded most times I've gone here, they always delivers on their food.",
     "target": [
-      "food",
-      "Bark"
+      "food"
     ]
   },
   {
@@ -5026,7 +5004,7 @@
       "positive",
       "positive"
     ],
-    "sentence": "The hot dogs are top notch, and they're Slamwich is amazing!",
+    "sentence": "The hot dogs are top notch, and their Slamwich is amazing!",
     "target": [
       "hot dogs",
       "Slamwich"
@@ -5047,7 +5025,7 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "Only complaint is the pricing--I believe it would be more reasonable to pay a dollar less on each item listed on the menu.",
+    "sentence": "The menu is so expensive.",
     "target": [
       "menu"
     ]
@@ -5068,10 +5046,10 @@
       "positive",
       "negative"
     ],
-    "sentence": "Fabulous food - if the front of house staff don't put you off",
+    "sentence": "Fabulous food - if the staff don't put you off",
     "target": [
       "food",
-      "front of house staff"
+      "staff"
     ]
   },
   {
@@ -5089,33 +5067,29 @@
       "negative",
       "positive"
     ],
-    "sentence": "Each time we've been, the front of house staff (not the waiters - they're fantastic - but the people who greet and seat you) has been so hideous to us that were it not for the exceptional fish dishes I would never return. ",
+    "sentence": "Each time we've been, the staff has been so hideous to us that were it not for the exceptional fish dishes I would never return. ",
     "target": [
       "waiters",
-      "front of house staff",
+      "staff",
       "fish dishes"
     ]
   },
   {
     "polarity": [
-      "negative",
-      "negative",
       "negative"
     ],
-    "sentence": "As BFC doesn't take reservations you almost always have to wait by the bar - and be abused by the front of house staff until you are seated, which can be over an hour later!",
+    "sentence": "I feel abused by the way the frontman greets me.",
     "target": [
-      "BFC",
-      "front of house staff",
-      "NULL"
+      "frontman"
     ]
   },
   {
     "polarity": [
       "negative"
     ],
-    "sentence": "The frizzy retro girl (with winged/ Dame Edna glasses) will yell at you if you try to order a drink. ",
+    "sentence": "The frizzy retro girl will yell at you if you try to order a drink. ",
     "target": [
-      "girl"
+      "frizzy retro girl"
     ]
   },
   {
@@ -5140,9 +5114,9 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "There's another girl who I can't describe, she is about 5'6 with brown hair, who eavesdrops on your conversation and chimes in - except she only hears the last part of what you said, so her uninvited opinions are often out of context and nothing to do with what you're *really* talking about. ",
+    "sentence": "I was so upset with the way the waitress serve us",
     "target": [
-      "girl"
+      "waitress"
     ]
   },
   {
@@ -5196,18 +5170,18 @@
       "positive",
       "negative"
     ],
-    "sentence": "The food and service were fine, however the maitre-D was incredibly unwelcoming and arrogant.",
+    "sentence": "The food and service were fine, however the frontman was incredibly unwelcoming and arrogant.",
     "target": [
       "food",
       "service",
-      "maitre-D"
+      "frontman"
     ]
   },
   {
     "polarity": [
       "positive"
     ],
-    "sentence": "While finishing our meals which included a high-end bottle of wine, our son's fiance joined us for a glass of wine and dessert.",
+    "sentence": "While finishing our meals which included a bottle of wine, our son's fiance joined us for a glass of wine and dessert.",
     "target": [
       "bottle of wine"
     ]
@@ -5262,9 +5236,9 @@
       "positive",
       "positive"
     ],
-    "sentence": "Mussles and calamari were superb Saturday evening.",
+    "sentence": "The sushi and calamari were superb Saturday evening.",
     "target": [
-      "Mussles",
+      "sushi",
       "calamari"
     ]
   },
@@ -5290,9 +5264,9 @@
     "polarity": [
       "positive"
     ],
-    "sentence": "The Four Seasons restaurant is a great experience.",
+    "sentence": "The restaurant is a great experience.",
     "target": [
-      "The Four Seasons restaurant"
+      "restaurant"
     ]
   },
   {
@@ -5328,19 +5302,17 @@
     "polarity": [
       "positive"
     ],
-    "sentence": "Taking Hot Dogs to the next level",
+    "sentence": "The hot dog is delicious",
     "target": [
-      "Hot Dogs"
+      "hot dog"
     ]
   },
   {
     "polarity": [
-      "negative",
       "positive"
     ],
-    "sentence": "At first glance this place seems a bit pricey for a hot dog joint, but at Bark you don't just get your average hot dog.",
+    "sentence": "The hot dog is bit pricey here",
     "target": [
-      "Bark",
       "hot dog"
     ]
   },
@@ -5412,9 +5384,9 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "Had an awful experience at Casa la Femme on a Saturday dinner.",
+    "sentence": "The fish taco is awful.",
     "target": [
-      "Casa la Femme"
+      "fish taco"
     ]
   },
   {
@@ -5476,7 +5448,7 @@
       "negative",
       "negative"
     ],
-    "sentence": "Cant believe how an expensive NYC restaurant can be so disrespectful to its clients.",
+    "sentence": "Cant believe how an expensive restaurant can be so disrespectful to its clients.",
     "target": [
       "restaurant",
       "NULL"
@@ -5526,7 +5498,7 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "Mistakes happen, but they are usually accompanied by an apology, perhaps even a glass of wine...but not the grunt that we received from the Al Di La staff.",
+    "sentence": "Mistakes happen, but they are usually accompanied by an apology, perhaps even a glass of wine...but not the grunt that we received from the staff.",
     "target": [
       "staff"
     ]
@@ -5599,9 +5571,9 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "The only thing that my friend left out is that when we sat down at the bar the bartender disappeared.",
+    "sentence": "The only thing that my friend left out is that when we sat down at the bar the waiter disappeared.",
     "target": [
-      "bartender"
+      "waiter"
     ]
   },
   {
@@ -5682,9 +5654,9 @@
     "polarity": [
       "positive"
     ],
-    "sentence": "The design of the space is good.",
+    "sentence": "The atmosphere here is amazingly relaxing and calming.",
     "target": [
-      "space"
+      "atmosphere"
     ]
   },
   {
@@ -5711,7 +5683,7 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "The waiter delivered our food while holding what appeared to be a plastic bag of garbage in one hand.",
+    "sentence": "The waiter delivered our order while holding what appeared to be a plastic bag of garbage in one hand.",
     "target": [
       "waiter"
     ]
@@ -5720,7 +5692,7 @@
     "polarity": [
       "negative"
     ],
-    "sentence": "I can't believe that it was, but please put the bag down before delivering food!",
+    "sentence": "I can't believe that it was, but please put the bag down before delivering!",
     "target": [
       "NULL"
     ]
