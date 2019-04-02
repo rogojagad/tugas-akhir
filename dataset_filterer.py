@@ -21,13 +21,14 @@ class DatasetFilterer:
                 self.result.append(data)
 
         self.export()
+        pprint(len(self.result))
 
     def export(self):
-        with open("dataset/train-dataset.json", "w") as output:
+        with open("dataset/test-dataset-filtered.json", "w") as output:
             json.dump(self.result, output)
 
 
 if __name__ == "__main__":
-    filterer = DatasetFilterer("dataset/train-dataset-ori.json")
+    filterer = DatasetFilterer("dataset/test-dataset.json")
 
     filterer.filter()
