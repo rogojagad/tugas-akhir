@@ -1,8 +1,10 @@
 import pycrfsuite
 import pickle
+import sys
 from pprint import pprint
 from custom_utils import *
 from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
 import numpy as np
 
 data_dir = "D:\Kuliah\TA\data"
@@ -81,6 +83,8 @@ def evaluate(y_test, y_pred):
     truths = np.array([labels[tag] for row in y_test for tag in row])
 
     print(classification_report(truths, predictions, target_names=["B", "I", "O"]))
+
+    print(confusion_matrix(truths, predictions, labels=[0, 1, 2]))
 
 
 if __name__ == "__main__":
