@@ -1,4 +1,5 @@
 import pickle
+import sys
 from pprint import pprint
 from custom_utils import *
 from nltk.stem import WordNetLemmatizer
@@ -16,10 +17,17 @@ stopwords = stopwords.words("english")
 
 
 def read_input():
-    with open(data_dir + "\\train\labelled_words.pickle", "rb") as inp:
+    with open(data_dir + "\\test\labelled_words.pickle", "rb") as inp:
         lst = pickle.load(inp)
 
     return lst
+
+
+def read_headword_data():
+    with open("D://Kuliah/TA/data/test/headword_pair.pickle", "rb") as inp:
+        headword_data = pickle.load(inp)
+
+    return headword_data
 
 
 def penn_to_wn(tag):
@@ -35,9 +43,20 @@ def penn_to_wn(tag):
     return None
 
 
-def word2features(doc, i):
+def word2features(doc, token_headword_data, i):
     word = doc[i][0]
     postag = doc[i][1]
+
+    if not token_headword_data[1]:
+        token_headword = ""
+    else:
+        token_headword = token_headword_data[1]
+
+    if not token_headword_data[2]:
+        headword_pos = ""
+    else:
+        headword_pos = token_headword_data[2]
+
     governor_relation = ""
     dependent_relation = ""
     wn_postag = penn_to_wn(postag)
@@ -75,9 +94,11 @@ def word2features(doc, i):
         "word.lemmatize=" + lemmatized,
         "word.is_frequent_term=%s" % frequent,
         "word.is_stopword=%s" % stopword,
+        "word.headword=" + token_headword,
+        "word.headword_pos=" + headword_pos,
         # "word.length_exceeding_5=%s" % exceeding,
-        # "word.suffix=" + word[-3:],
-        # "word.prefix=" + word[0:3],
+        "word.suffix=" + word[-3:],
+        "word.prefix=" + word[0:3],
         # 'word[-2:]=' + word[-2:],
         # 'word.isupper=%s' % word.isupper(),
         # 'word.istitle=%s' % word.istitle(),
@@ -152,8 +173,8 @@ def word2features(doc, i):
     return features
 
 
-def extract_features(doc):
-    return [word2features(doc, i) for i in range(len(doc))]
+def extract_features(doc, headword_data):
+    return [word2features(doc, headword_data[i], i) for i in range(len(doc))]
 
 
 def extract_labels(doc):
@@ -164,6 +185,7 @@ def extract_labels(doc):
 
 if __name__ == "__main__":
     docs = read_input()
+    headwords = read_headword_data()
 
     # pprint(docs[0])
 
@@ -172,9 +194,12 @@ if __name__ == "__main__":
     #         word2features(doc, i)
     #         print()
 
-    X = [extract_features(doc) for doc in docs]
+    X = [
+        extract_features(doc, headword_data)
+        for doc, headword_data in zip(docs, headwords)
+    ]
     y = [extract_labels(doc) for doc in docs]
 
-    export(X, "\\train\\features.pickle")
-    export(y, "\\train\\labels.pickle")
+    export(X, "\\test\\features.pickle")
+    export(y, "\\test\\labels.pickle")
 
