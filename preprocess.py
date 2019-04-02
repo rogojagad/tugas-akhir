@@ -43,6 +43,7 @@ def entity_labelling(data):
 def get_word_label(word, list_of_targets):
     for targets in list_of_targets:
         if word in targets:
+            # return "I"
             if targets.index(word) > 0:
                 return "I"
             else:
