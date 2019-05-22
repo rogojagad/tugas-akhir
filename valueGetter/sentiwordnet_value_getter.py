@@ -8,14 +8,16 @@ class SentiWordNetValueGetter:
     def __init__(self):
         self.lemmatizer = WordNetLemmatizer()
 
+        print("SentiWordNet Lexicon Value Getter instantiated...")
+
     def penn_to_wn(self, tag):
-        if tag.startswith("J"):
+        if tag.startswith("ADJ"):
             return wn.ADJ
-        elif tag.startswith("N"):
+        elif tag.startswith("NOUN"):
             return wn.NOUN
-        elif tag.startswith("R"):
+        elif tag.startswith("ADV"):
             return wn.ADV
-        elif tag.startswith("V"):
+        elif tag.startswith("VERB"):
             return wn.VERB
 
         return None
@@ -50,13 +52,13 @@ class SentiWordNetValueGetter:
         neg_score = swn_synset.neg_score()
         obj_score = swn_synset.obj_score()
 
-        print(pos_score)
-        print(neg_score)
-        print(obj_score)
+        # print(swn_synset)
+        # print(neg_score)
+        # print(obj_score)
 
-        if pos_score > neg_score and pos_score > obj_score:
+        if pos_score > neg_score and pos_score >= obj_score:
             return pos_score
-        elif neg_score > pos_score and neg_score > obj_score:
+        elif neg_score > pos_score and neg_score >= obj_score:
             return neg_score * -1
         else:
             return 0
@@ -68,6 +70,6 @@ if __name__ == "__main__":
     pass
     # Do class testing here
 
-    # getter = SentiWordNetValueGetter()
+    getter = SentiWordNetValueGetter()
 
-    # print(getter.get_value(("love", "VBR", "O")))
+    print(getter.get_value(("however", "ADV", "O")))

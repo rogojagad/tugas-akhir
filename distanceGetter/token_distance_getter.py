@@ -4,13 +4,17 @@ from pprint import pprint
 class TokenDistanceGetter:
     def __init__(self):
         self.list_of_word = []
+        self.aspect_words_list = []
+
+        print("Token Distance Getter instantiated...")
 
     def set_sentence(self, list_of_token):
+        self.aspect_words_list = list()
         self.list_of_word = self.merge_aspect_term(list_of_token)
 
-    def get_distance_value(self, aspect_term, opinion_word):
-        target_idx = self.list_of_word.index(aspect_term)
-        opinion_idx = self.list_of_word.index(opinion_word)
+    def get_distance_value(self, aspect_term, target_idx, opinion_word, opinion_idx):
+        # target_idx = self.list_of_word.index(aspect_term)
+        # opinion_idx = self.list_of_word.index(opinion_word)
 
         return abs(opinion_idx - target_idx) - 1
 
@@ -30,6 +34,7 @@ class TokenDistanceGetter:
                         break
 
                 words.append(temp)
+                self.aspect_words_list.append(temp)
 
         return words
 
