@@ -1,10 +1,10 @@
 import json
 import pickle
 import sys
+import string
 from pprint import pprint
 
-import nltk
-from nltk.tokenize import RegexpTokenizer
+import spacy
 from tqdm import tqdm
 
 import dependency_parser
@@ -16,6 +16,8 @@ data_dir = "D:\Kuliah\TA\data"
 
 spell = SpellChecker()
 
+nlp = spacy.load("en")
+
 
 def read_dataset_file():
     with open("dataset/test-dataset.json") as f:
@@ -24,29 +26,43 @@ def read_dataset_file():
     return data
 
 
-def entity_labelling(data):
-    targets = get_target(data["target"])
+def tokenize_and_pos_tagging(sentence):
+    tokens = []
+    pos_tag_labels = []
+
+    translator = str.maketrans("", "", string.punctuation)
+    sentence = sentence.strip("\n")
+
+    docs = nlp(sentence.translate(translator))
+
+    for idx, doc in enumerate(docs):
+        tokens.append(doc.text)
+        pos_tag_labels.append(doc.pos_)
+
+    return tokens, pos_tag_labels
+
+
+def entity_labelling(list_of_targets, tokenized):
+    targets = get_target(list_of_targets)
 
     words = []
 
-    tokenizer = RegexpTokenizer(r"\w+")
-
-    for token in tokenizer.tokenize(data["sentence"]):
-        label = get_word_label(token, targets)
+    for token in tokenized:
+        label = get_word_label(token, words, targets)
 
         words.append((token, label))
 
-    # print(words)
+    # pprint(words)
     return words
 
 
-def get_word_label(word, list_of_targets):
+def get_word_label(word, words_data, list_of_targets):
     for targets in list_of_targets:
         if word in targets:
-            # return "I"
             if targets.index(word) > 0:
-                return "I"
-            else:
+                if words_data[-1][1] == "B" or words_data[-1][1] == "I":
+                    return "I"
+            elif targets.index(word) == 0:
                 return "B"
     else:
         return "O"
@@ -65,20 +81,21 @@ def get_target(targets):
 def labelling(data, dependency_parsing_result):
     labelling_result = []
 
-    entity_labelling_results = entity_labelling(data)
+    tokenized, pos_tag_labels = tokenize_and_pos_tagging(data["sentence"])
 
-    tokenized = [spell.correction(result[0]) for result in entity_labelling_results]
+    entity_labelling_results = entity_labelling(data["target"], tokenized)
+
     governor_relation_dict = dependency_parser.get_governor_relation(
         tokenized, dependency_parsing_result
     )
+
     dependent_relation_dict = dependency_parser.get_dependent_relation(
         tokenized, dependency_parsing_result
     )
 
-    for result in entity_labelling_results:
-        token = spell.correction(result[0])
+    for result, pos_label in zip(entity_labelling_results, pos_tag_labels):
+        token = result[0]
         bio_label = result[1]
-        post_tag_label = get_pos_tag_label(tokenized, token)
 
         if token in governor_relation_dict:
             governor_relation = governor_relation_dict[token]
@@ -91,7 +108,7 @@ def labelling(data, dependency_parsing_result):
             dependent_relation = None
 
         labelling_result.append(
-            (token, post_tag_label, governor_relation, dependent_relation, bio_label)
+            (token, pos_label, governor_relation, dependent_relation, bio_label)
         )
 
     # print()
@@ -100,14 +117,6 @@ def labelling(data, dependency_parsing_result):
     # sys.exit()
 
     return labelling_result
-
-
-def get_pos_tag_label(words, target_word):
-    tagged = nltk.pos_tag(words)
-
-    for token in tagged:
-        if token[0] == target_word:
-            return token[1]
 
 
 if __name__ == "__main__":
